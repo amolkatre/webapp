@@ -1,0 +1,19 @@
+pipeline {
+    agent any {
+        
+    }
+    stages {
+        stage ('compile stage') {
+            sh 'mvn clean compile'
+        }
+        stage ('Testing stage') {
+            sh 'mvn test'
+        }
+        stage('Install stage') {
+            sh 'mvn install'
+        }
+        stage ('Echo Branch') {
+            echo "This is master branch"
+        }
+    }
+}
